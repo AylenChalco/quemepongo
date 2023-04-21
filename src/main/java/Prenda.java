@@ -3,7 +3,6 @@ import java.awt.*;
 public class Prenda {
 
   TipoPrenda tipoPrenda;
-  Categoria categoria;
   Color colorPrincipal;
   Material material;
   Color colorSecundario;
@@ -48,25 +47,10 @@ public class Prenda {
   }
 
   public boolean esValida() {
-    return tieneTodosTipos() && coincideCategoriaConTipo();
+    return tieneTodosTipos();
   }
 
-  private boolean coincideCategoriaConTipo() {
-
-    return tipoPrenda.concideConCategoria(categoria);
-    /*
-    Tipo de prenda al crearse tiene una categoria como atributo
-    -Un tipo prenda no puede cambiar de categoria, en tofo caso seria un nuevo tipo prenda
-    -Hay cantidad infinita de tipos prenda, mas solo existen 4 categorias
-
-    Desventajas:
-    Es necesario ingresar por parametro una categoria, siendo que al ingrear un tipoPrenda puede conocer la categoria de esta?
-    En ese caso a la hora de instanciar prenda
-    */
-
-  }
-
-  private boolean tieneTodosTipos() {
+    private boolean tieneTodosTipos() {
     return tipoPrenda!= null && colorPrincipal!= null && material!= null; //Por default, borrar despues
     /*Si la prenda se instancia con el constrctor¿Los valores ya cumplen este requisito por defecto?
      * */
