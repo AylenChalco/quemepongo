@@ -1,35 +1,35 @@
 import java.awt.*;
+import java.util.Objects;
 import java.util.Optional;
 
 public class BuilderPrenda {
-  Trama trama = Trama.LISA;
+  Trama trama;
   TipoPrenda tipoPrenda;
   Material material;
-  Color colorPrimario;
+  Color colorPrincipal;
   Color colorSecundario;
 
-  /*Como usuarie de QuéMePongo, quiero crear una prenda especificando primero de qué tipo es.*/
   BuilderPrenda(TipoPrenda tipoPrenda) {
     this.tipoPrenda = tipoPrenda;
+    this.trama = Trama.LISA;
   }
-
   void agregarMaterial(Material material) {
     this.material = material;
   }
-
   void agregarColorPrimario(Color colorPrimario) {
-    this.colorPrimario = colorPrimario;
+    this.colorPrincipal = colorPrimario;
   }
-
   void agregarColorSecundario(Color colorSecundario) {
     this.colorSecundario = colorSecundario;
   }
-
-  void especificarTrama(Trama trama) {
+  void agregarTrama(Trama trama) {
     this.trama = trama;
   }
 
   public Prenda crearPrenda() {
-    return new Prenda(tipoPrenda, colorPrimario, material, Optional.ofNullable(colorSecundario), trama);
+    Objects.requireNonNull(tipoPrenda, "Falta el tipo");
+    Objects.requireNonNull(colorPrincipal, "Falta color el principal");
+    Objects.requireNonNull(material, "Falta el material");
+    return new Prenda(tipoPrenda, colorPrincipal, material, Optional.ofNullable(colorSecundario), trama);
   }
 }

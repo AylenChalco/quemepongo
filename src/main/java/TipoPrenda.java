@@ -5,7 +5,6 @@ public class TipoPrenda {
     this.categoria = categoria;
 
   }
-  public Categoria devolverCategoria(){
-    return this.categoria;
+  public Categoria devolverCategoria(){ return this.categoria;
   }
 }
