@@ -5,6 +5,5 @@ public class Atuendo {
   Prenda inferior;
   Prenda calzado;
   Set<Prenda> accesorios;
-
   }
 
