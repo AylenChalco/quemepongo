@@ -8,13 +8,15 @@ public class Prenda {
   Color colorPrincipal;
   Material material;
   Optional<Color> colorSecundario;
+  Formalidad tipoFormalidad;
 
-  Prenda(TipoPrenda tipoPrenda, Color colorPrincipal, Material material, Optional<Color> colorSecundario, Trama trama){
+  Prenda(TipoPrenda tipoPrenda, Color colorPrincipal, Material material, Optional<Color> colorSecundario, Trama trama, Formalidad tipoFormalidad){
     this.tipoPrenda = tipoPrenda;
     this.colorPrincipal = colorPrincipal;
     this.material = material;
     this.colorSecundario = colorSecundario;
     this.trama = trama;
+    this.tipoFormalidad = tipoFormalidad;
   }
 
   public Categoria identificarCategoria(){
@@ -34,6 +36,19 @@ public class Prenda {
   }
 
 
+  public boolean esSuperior() {
+    return this.tipoPrenda.devolverCategoria() == Categoria.PARTE_SUPERIOR;
+  }
 
+  public boolean isInformal() {
+    return this.tipoFormalidad == Formalidad.INFORMAL;
+  }
 
+  public boolean esInferior() {
+    return this.tipoPrenda.devolverCategoria() == Categoria.PARTE_INFERIOR;
+  }
+
+  public boolean esCalzado() {
+    return this.tipoPrenda.devolverCategoria() == Categoria.CALZADO;
+  }
 }

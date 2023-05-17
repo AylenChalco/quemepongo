@@ -2,14 +2,15 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.Optional;
 
-public class BuilderPrenda {
+public class BorradorPrenda {
   Trama trama;
   TipoPrenda tipoPrenda;
   Material material;
   Color colorPrincipal;
   Color colorSecundario;
+  Formalidad formalidad;
 
-  BuilderPrenda(TipoPrenda tipoPrenda) {
+  BorradorPrenda(TipoPrenda tipoPrenda) {
     this.tipoPrenda = tipoPrenda;
     this.trama = Trama.LISA;
   }
@@ -25,11 +26,14 @@ public class BuilderPrenda {
   void agregarTrama(Trama trama) {
     this.trama = trama;
   }
+  public void indicarFormalidad(Formalidad formalidad) {
+    this.formalidad = formalidad;
+  }
 
   public Prenda crearPrenda() {
     Objects.requireNonNull(tipoPrenda, "Falta el tipo");
     Objects.requireNonNull(colorPrincipal, "Falta color el principal");
     Objects.requireNonNull(material, "Falta el material");
-    return new Prenda(tipoPrenda, colorPrincipal, material, Optional.ofNullable(colorSecundario), trama);
+    return new Prenda(tipoPrenda, colorPrincipal, material, Optional.ofNullable(colorSecundario), trama, formalidad);
   }
 }
